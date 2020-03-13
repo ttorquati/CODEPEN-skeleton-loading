@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue;
+  font-size: 16px;
+  color: #333;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 300px;
+  border-radius: .35rem;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, .2);
+  
+  transition: ease box-shadow 0.2s;
+  &:hover {
+   box-shadow: 0 0 12px 6px rgba(0, 0, 0, .3);
+  }
+}
+
+.card-image {
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: .35rem .35rem 0 0;
+  }
+}
+
+.card-detail {
+  padding: 1.25rem 1rem;
+  
+  h3 {
+    font-size: 1.15rem;
+    line-height: .09;
+  }
+  
+  p {
+    margin-top: 1.15rem;
+    font-size: .85rem;
+  }
+}
+
+.loading {
+  position: relative;
+  background-color: #E2E2E2;
+  
+  &.card-image {
+    border-radius: 0;
+  }
+  
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3), transparent);
+    animation: loading 1.5s infinite;
+  }
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card-title.loading {
+  height: 1.7rem;
+  border-radius: 10000px;
+}
+
+.card-image.loading {
+  height: 86px;
+}
+
+.card-description.loading {
+  height: 1.7rem;
+  border-radius: 10000px;
+}
